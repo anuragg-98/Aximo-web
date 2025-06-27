@@ -22,6 +22,4 @@ A visually appealing website inspired by Zentry that includes scroll-triggered a
 
 **Smooth UI/UX**: Polished interfaces with buttery-smooth interactions for an intuitive user journey.
 
-**Completely Responsive**: Flawless adaptation across all devices, ensuring a consistent experience.
-
-and many more, including code architecture and reusability
+**Completely Responsive**: Flawless adaptation across all devices, ensuring a consistent experience and many more, including code architecture and reusability.
