@@ -1,6 +1,5 @@
 import { Suspense, lazy } from "react";
 import Navbar from "./components/Navbar";
-import Loader from "./components/Loader";
 import Footer from "./components/Footer";
 
 // Lazy loading only non-critical below-fold components
@@ -16,7 +15,7 @@ function App() {
     <div className="bg-[#0f0f0f] text-white scroll-smooth overflow-x-hidden">
       <Navbar />
 
-      <Suspense fallback={<Loader />}>
+      <Suspense fallback={<div>Loading...</div>}>
         <Hero />
       </Suspense>
 
