@@ -1,22 +1,35 @@
-import About from "./components/About";
-import Hero from "./components/Hero";
-import NavBar from "./components/Navbar";
-import Features from "./components/Features";
-import Story from "./components/Story";
-import Contact from "./components/Contact";
+import { Suspense, lazy } from "react";
+import Navbar from "./components/Navbar";
+import Loader from "./components/Loader";
 import Footer from "./components/Footer";
+
+// Lazy loading only non-critical below-fold components
+const Hero = lazy(() => import("./components/Hero"));
+const About = lazy(() => import("./components/About"));
+const Projects = lazy(() => import("./components/Projects"));
+const Services = lazy(() => import("./components/Services"));
+const Testimonials = lazy(() => import("./components/Testimonials"));
+const Contact = lazy(() => import("./components/Contact"));
 
 function App() {
   return (
-    <main className="relative min-h-screen w-screen overflow-x-hidden">
-      <NavBar />
-      <Hero />
-      <About />
-      <Features />
-      <Story />
-      <Contact />
+    <div className="bg-[#0f0f0f] text-white scroll-smooth overflow-x-hidden">
+      <Navbar />
+
+      <Suspense fallback={<Loader />}>
+        <Hero />
+      </Suspense>
+
+      <Suspense fallback={<div className="text-center py-10">Loading...</div>}>
+        <About />
+        <Projects />
+        <Services />
+        <Testimonials />
+        <Contact />
+      </Suspense>
+
       <Footer />
-    </main>
+    </div>
   );
 }
 
